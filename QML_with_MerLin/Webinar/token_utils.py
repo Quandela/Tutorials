@@ -6,6 +6,7 @@ from the environment.
 
 Supported .env variable names (checked in this order):
     CLOUD_TOKEN
+    PCVL_CLOUD_TOKEN
     QUANDELA_CLOUD_TOKEN
     QUANDELA_TOKEN
 
@@ -48,6 +49,7 @@ def load_cloud_token() -> str:
     # Step 2 – check well-known environment-variable names.
     token = (
         os.getenv("CLOUD_TOKEN")
+        or os.getenv("PCVL_CLOUD_TOKEN")
         or os.getenv("QUANDELA_CLOUD_TOKEN")
         or os.getenv("QUANDELA_TOKEN")
         or ""
